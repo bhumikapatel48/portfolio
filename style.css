@@ -320,31 +320,48 @@ footer a:hover {
 }
 
 /* Responsive */
-
-@media (max-width: 768px) {
-  nav > div {
-    flex-wrap: wrap;
-  }
-  div > a:not(:first-child) {
+/* Hide desktop nav in small screens */
+@media screen and (max-width: 768px) {
+  .desktop-nav {
     display: none;
   }
+
   #hamburger {
     display: flex;
-  }
-  #experience .timeline-date {
-    left: 0;
-    position: relative;
-    width: auto;
-    margin-bottom: 5px;
-  }
-  .timeline {
-    border-left: none;
-    padding-left: 0;
-  }
-  .timeline-item {
-    margin-left: 0;
-  }
-  .skills-grid {
     flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  #hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  #mobileNav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  #mobileNav.open {
+    display: flex;
+  }
+
+  #mobileNav a {
+    padding: 1rem 20px;
+    color: white;
+    text-decoration: none;
+    border-top: 1px solid #333;
+    font-weight: 600;
   }
 }
